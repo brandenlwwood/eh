@@ -8,6 +8,7 @@ storageClassProvisioner: none
 storageClassName: longhorn
   # Replace with domain name the api should be served on.
   dnsName: sysdig.adriall.com
+  ingressNetworking: loadbalancer
   admin:
     username: branden.wood@sysdig.com
   # Replace with license provided by the sales team.
