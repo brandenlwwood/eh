@@ -1,0 +1,36 @@
+# The instructions here should create Sysdig Platform on a single node with 8 cores and 16Gig of RAM.
+size: small
+# Replace with quay.io pull secrets provided by the sales team.
+quaypullsecret:ewogICJhdXRocyI6IHsKICAgICJxdWF5LmlvIjogewogICAgICAiYXV0aCI6ICJjM2x6WkdsbksyWmxaRjl3YjNaZllXNXNPak5TU2pZM1FqbFVUMEpTVnpWR05Ea3lUalZRT0RJeVFqQkdTVFJDV1RWVlEwWkJPVGxhVkZKT1MxZzNVMWRHTXpNd1drZzNUMWM0VHpRelZqZ3pObG89IiwKICAgICAgImVtYWlsIjogIiIKICAgIH0KICB9Cn0=
+# Acceptable values here are awe|gke|none|hostPath, change this to none and configure storageClassName if you want to use an existing storageClass
+storageClassProvisioner: none
+# Uncomment the below to specify an existing storageClass, if not configured a storageClass is created with the configured storageClassProvisioner
+storageClassName: longhorn
+  # Replace with domain name the api should be served on.
+  dnsName: sysdig.adriall.com
+  admin:
+    username: branden.wood@sysdig.com
+  # Replace with license provided by the sales team.
+  license: 582ed26edd7f3eb9bb8452d04586dd84f0cfdc44ccc86ae3afe6ef66b500a7f60e706373081a727eb93f0c530b6ec8c74ad3f4c5040c43c96423e32ae72f08061d40f73537babaeb93d5fa1014f17fb95a95094181054702bd5f0bf5f5ed4aa0c7a0a4a026f67869cd070274de107aefe19c8205e54f0ed1873823ef58b73dc382c60a2b05395826310f18f2ff9a842f35409bd77ce7e8039062eca7ee482ade68d80f9f3477b8b1d566c8e2dc81edcd8c5b70291277919029a532659077fe49ffaaa6c8187d5ef3a4e09a34e939efad6fa71f1b2f636c329945c7e6231d36bb
+  # For PoC do not change the below
+  resources:
+    api:
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    cassandra:
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    collector:
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    elasticsearch:
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    worker:
+      requests:
+        cpu: 500m
+        memory: 1Gi
